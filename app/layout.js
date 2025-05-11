@@ -1,7 +1,12 @@
-import { Inter } from "next/font/google";
+import { Inter, Pangolin } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const pangolin = Pangolin({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-pangolin",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +16,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} ${pangolin.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
