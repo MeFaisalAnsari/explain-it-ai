@@ -22,7 +22,6 @@ const TopicSelector = () => {
           content: `Hi! I'm just five, but I'm super curious. Can you explain "${topic}" to me?`,
         },
       ],
-      feedback: null,
       createdAt: Date.now(),
     };
     setSelectedChatId(newChat.id);
@@ -37,10 +36,12 @@ const TopicSelector = () => {
   };
 
   return (
-    <div className="h-full flex justify-center items-center p-6">
+    <div className="h-full max-w-3xl mx-auto text-center flex justify-center items-center p-6">
       <div>
         <FadeInUp>
-          <h2 className="font-kid text-4xl">Explain It Like I'm Five 👶</h2>
+          <h2 className="font-kid text-5xl text-primary">
+            Explain It Like I'm Five 👶
+          </h2>
         </FadeInUp>
         <FadeInUp delay={0.1} className="mt-4 text-foreground/50">
           Struggling to simplify complex ideas? This app lets you practice by
@@ -50,20 +51,21 @@ const TopicSelector = () => {
         </FadeInUp>
 
         <FadeInUp delay={0.2} className="mt-8">
-          <div className="border shadow-md rounded-full p-4 pl-6 w-full flex items-center gap-6">
+          <div className="shadow-2xl rounded-full p-2 w-full flex items-center gap-6 bg-white dark:bg-white/5">
             <input
+              autoFocus
               value={topic}
               onChange={(e) => setTopic(e.target.value)}
               type="text"
               onKeyDown={handleKeyDown}
               disabled={loading}
-              className="flex-1 outline-none text-lg font-medium placeholder:text-foreground/50"
+              className="flex-1 outline-none placeholder:text-foreground/50 pl-4"
               placeholder="Enter a topic (e.g., Black Holes, Inflation)"
             />
             <button
               onClick={handleStartChat}
               disabled={loading}
-              className="bg-primary text-background rounded-full h-10 w-10 flex items-center justify-center hover:opacity-80 transition-opacity"
+              className="bg-primary shadow  text-background rounded-full h-12 w-12 flex items-center justify-center hover:opacity-80 transition-opacity"
             >
               <SendHorizontal />
             </button>
